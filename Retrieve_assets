@@ -1,0 +1,77 @@
+from unittest import result
+
+from bs4 import ResultSet
+
+
+def parse_assets_data(assets_dict):
+
+    try:
+        collection_slug =  assets_dict['collection']['slug']
+    except:
+        collection_slug = None
+    
+    try:
+        asset_contract_address =  assets_dict['asset_contract']['address']
+    except:
+        asset_contract_address = None
+    
+    token_id = assets_dict['token_id']
+    image_url = assets_dict['image_url'] 
+    
+    
+
+    try:
+        creator_address =  assets_dict['creator']['address']
+    except:
+        creator_address = None
+    
+    try:
+        created_date = assets_dict['asset_contract']['created_date']
+    except:
+        created_date = None
+    
+    try:
+        total_supply =  int(assets_dict['asset_contract']['total_supply'])
+    except:
+        total_supply = None
+    
+    try:
+        owner_username = assets_dict['owner']['user']['username']
+    except:
+        owner_username = None
+    
+    try:
+        owner_address = assets_dict['owner']['address']
+    except:
+        owner_address = None
+
+    try:
+        traits = assets_dict['traits']
+    except:
+        traits = None
+    
+    
+    
+    
+
+    num_sales = int(assets_dict['num_sales'])
+
+    result = {
+        'collection_slug' : collection_slug,
+        'asset_contract_address':asset_contract_address,
+        'token_id': token_id,
+        'image_url': image_url,
+        
+        'creator_address': creator_address,
+        'created_date' : created_date,
+        'owner_username': owner_username,
+        'owner_address': owner_address,
+        'traits': traits,
+        'total_supply':total_supply,
+        'num_sales': num_sales
+        
+
+    }
+
+    
+    return result
